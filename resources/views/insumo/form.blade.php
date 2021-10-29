@@ -13,7 +13,11 @@
         </div>
         <div class="form-group">
             {{ Form::label('disponible') }}
-            {{ Form::text('disponible', $insumo->disponible, ['class' => 'form-control' . ($errors->has('disponible') ? ' is-invalid' : ''), 'placeholder' => 'Disponible']) }}
+            <br>
+            {{ Form::label('Sí') }}
+            {{ Form::radio('disponible', $insumo->disponible=1, ['class' => 'form-control' . ($errors->has('disponible') ? ' is-invalid' : ''), 'placeholder' => 'Disponible']) }}
+            {{ Form::label('No') }}
+            {{ Form::radio('disponible', $insumo->disponible=0, ['class' => 'form-control' . ($errors->has('disponible') ? ' is-invalid' : ''), 'placeholder' => 'Disponible']) }}
             {!! $errors->first('disponible', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
