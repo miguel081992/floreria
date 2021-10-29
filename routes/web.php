@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\InsumoController;
-
+use App\Http\Controllers\CompraController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('productos', ProductoController::class)->middleware('auth');
 Route::resource('insumos', InsumoController::class)->middleware('auth');
+Route::resource('compras', CompraController::class)->middleware('auth');

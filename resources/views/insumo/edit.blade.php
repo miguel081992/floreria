@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Actualizar Insumo
+    Editar Insumo
 @endsection
 
 @section('content')

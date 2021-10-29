@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Edicion Producto
+    Editar Producto
 @endsection
 
 @section('content')

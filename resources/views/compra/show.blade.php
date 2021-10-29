@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $producto->name ?? 'Show Producto' }}
+    {{ $compra->name ?? 'Ver Compra' }}
 @endsection
 
 @section('content')
@@ -11,38 +11,34 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Producto</span>
+                            <span class="card-title">Ver Compra</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('productos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('compras.index') }}"> Volver </a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Insumo Id:</strong>
-                            {{ $producto->insumo_id }}
+                            <strong>Insumo:</strong>
+                            {{ $compra->insumo_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Cantidadinsumo:</strong>
-                            {{ $producto->cantidadInsumo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nombreproducto:</strong>
-                            {{ $producto->nombreProducto }}
+                            <strong>Proveedor:</strong>
+                            {{ $compra->proveedor }}
                         </div>
                         <div class="form-group">
                             <strong>Costo:</strong>
-                            {{ $producto->costo }}
+                            {{ $compra->costo }}
                         </div>
                         <div class="form-group">
-                            <strong>Precioventa:</strong>
-                            {{ $producto->precioVenta }}
+                            <strong>Cantidad:</strong>
+                            {{ $compra->cantidad }}
                         </div>
                         <div class="form-group">
-                            <strong>Disponible:</strong>
-                            {{ $producto->disponible }}
+                            <strong>Total:</strong>
+                            {{ $compra->total }}
                         </div>
 
                     </div>

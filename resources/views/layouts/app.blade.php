@@ -33,6 +33,7 @@
                     <ul class="navbar-nav mr-auto">
                         <a class="nav-link" href="{{ route('productos.index') }}">{{ __('Productos') }}</a>
                         <a class="nav-link" href="{{ route('insumos.index') }}">{{ __('Insumos') }}</a>
+                        <a class="nav-link" href="{{ route('compras.index') }}">{{ __('Compras') }}</a>
                     </ul>
                     @endif
                     <!-- Right Side Of Navbar -->

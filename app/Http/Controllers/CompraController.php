@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\Compra;
 use Illuminate\Http\Request;
 use App\Models\Insumo;
 
 /**
- * Class ProductoController
+ * Class CompraController
  * @package App\Http\Controllers
  */
-class ProductoController extends Controller
+class CompraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +19,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::paginate();
+        $compras = Compra::paginate();
 
-        return view('producto.index', compact('productos'))
-            ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
+        return view('compra.index', compact('compras'))
+            ->with('i', (request()->input('page', 1) - 1) * $compras->perPage());
     }
 
     /**
@@ -32,9 +32,9 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $producto = new Producto();
+        $compra = new Compra();
         $insumos = Insumo::pluck('nombreInsumo','id');
-        return view('producto.create', compact('producto','insumos'));
+        return view('compra.create', compact('compra','insumos'));
     }
 
     /**
@@ -45,12 +45,12 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Producto::$rules);
+        request()->validate(Compra::$rules);
 
-        $producto = Producto::create($request->all());
+        $compra = Compra::create($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto created successfully.');
+        return redirect()->route('compras.index')
+            ->with('success', 'Compra created successfully.');
     }
 
     /**
@@ -61,9 +61,9 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        $producto = Producto::find($id);
+        $compra = Compra::find($id);
 
-        return view('producto.show', compact('producto'));
+        return view('compra.show', compact('compra'));
     }
 
     /**
@@ -74,26 +74,26 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        $producto = Producto::find($id);
+        $compra = Compra::find($id);
         $insumos = Insumo::pluck('nombreInsumo','id');
-        return view('producto.edit', compact('producto','insumos'));
+        return view('compra.edit', compact('compra','insumos'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Producto $producto
+     * @param  Compra $compra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Compra $compra)
     {
-        request()->validate(Producto::$rules);
+        request()->validate(Compra::$rules);
 
-        $producto->update($request->all());
+        $compra->update($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto updated successfully');
+        return redirect()->route('compras.index')
+            ->with('success', 'Compra updated successfully');
     }
 
     /**
@@ -103,9 +103,9 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Producto::find($id)->delete();
+        $compra = Compra::find($id)->delete();
 
-        return redirect()->route('productos.index')
-            ->with('success', 'Producto deleted successfully');
+        return redirect()->route('compras.index')
+            ->with('success', 'Compra deleted successfully');
     }
 }

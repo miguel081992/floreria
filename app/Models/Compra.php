@@ -5,30 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Producto
+ * Class Compra
  *
  * @property $id
  * @property $insumo_id
- * @property $cantidadInsumo
- * @property $nombreProducto
+ * @property $proveedor
  * @property $costo
- * @property $precioVenta
- * @property $disponible
+ * @property $cantidad
+ * @property $total
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Producto extends Model
+class Compra extends Model
 {
     
     static $rules = [
 		'insumo_id' => 'required',
-		'cantidadInsumo' => 'required',
-		'nombreProducto' => 'required',
-		'precioVenta' => 'required',
-		'disponible' => 'required',
+		'costo' => 'required',
+		'cantidad' => 'required',
     ];
 
     protected $perPage = 20;
@@ -38,7 +35,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['insumo_id','cantidadInsumo','nombreProducto','costo','precioVenta','disponible'];
+    protected $fillable = ['insumo_id','proveedor','costo','cantidad','total'];
 
 
 

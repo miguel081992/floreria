@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Producto
+    Compras
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Producto') }}
+                                {{ __('Compras') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('compras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Agregar') }}
                                 </a>
                               </div>
@@ -36,32 +36,30 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Insumo Id</th>
-										<th>Cantidad insumo</th>
-										<th>Nombre producto</th>
+										<th>Insumo</th>
+										<th>Proveedor</th>
 										<th>Costo</th>
-										<th>Precio venta</th>
-										<th>Disponible</th>
+										<th>Cantidad</th>
+										<th>Total</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($productos as $producto)
+                                    @foreach ($compras as $compra)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $producto->insumo_id }}</td>
-											<td>{{ $producto->cantidadInsumo }}</td>
-											<td>{{ $producto->nombreProducto }}</td>
-											<td>{{ $producto->costo }}</td>
-											<td>{{ $producto->precioVenta }}</td>
-											<td>{{ $producto->disponible }}</td>
+											<td>{{ $compra->insumo_id }}</td>
+											<td>{{ $compra->proveedor }}</td>
+											<td>{{ $compra->costo }}</td>
+											<td>{{ $compra->cantidad }}</td>
+											<td>{{ $compra->total }}</td>
 
                                             <td>
-                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('compras.destroy',$compra->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('compras.show',$compra->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('compras.edit',$compra->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
@@ -74,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $productos->links() !!}
+                {!! $compras->links() !!}
             </div>
         </div>
     </div>

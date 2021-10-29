@@ -17,7 +17,7 @@ class CreateInsumosTable extends Migration
             $table->id();
             $table->string('nombreInsumo');
             $table->integer('cantidad');
-            $table->boolean('disponible');
+            $table->boolean('disponible')->default(1);
             $table->timestamps();
         });
     }
