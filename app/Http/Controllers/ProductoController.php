@@ -19,9 +19,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::paginate();
-
-        return view('producto.index', compact('productos'))
+        $productos = Producto::paginate(10);
+        $insumos = Insumo::all();
+        return view('producto.index', compact('productos','insumos'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 

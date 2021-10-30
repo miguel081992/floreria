@@ -49,8 +49,11 @@
                                     @foreach ($compras as $compra)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $compra->insumo_id }}</td>
+                                            @foreach($insumos as $ins)
+                                            @if($ins->id == $compra->insumo_id)
+											<td>{{ $ins->nombreInsumo }}</td>
+                                            @endif
+                                            @endforeach
 											<td>{{ $compra->proveedor }}</td>
 											<td>{{ $compra->costo }}</td>
 											<td>{{ $compra->cantidad }}</td>

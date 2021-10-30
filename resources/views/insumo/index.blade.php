@@ -50,7 +50,11 @@
                                             
 											<td>{{ $insumo->nombreInsumo }}</td>
 											<td>{{ $insumo->cantidad }}</td>
-											<td>{{ $insumo->disponible }}</td>
+                                            @if($insumo->disponible == 1)
+											<td>Sí</td>
+                                            @else
+                                            <td>No</td>
+                                            @endif
 
                                             <td>
                                                 <form action="{{ route('insumos.destroy',$insumo->id) }}" method="POST">

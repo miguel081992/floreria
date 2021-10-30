@@ -19,9 +19,9 @@ class CompraController extends Controller
      */
     public function index()
     {
-        $compras = Compra::paginate();
-
-        return view('compra.index', compact('compras'))
+        $compras = Compra::paginate(10);
+        $insumos = Insumo::all();
+        return view('compra.index', compact('compras','insumos'))
             ->with('i', (request()->input('page', 1) - 1) * $compras->perPage());
     }
 
@@ -48,7 +48,6 @@ class CompraController extends Controller
         request()->validate(Compra::$rules);
 
         $compra = Compra::create($request->all());
-
         return redirect()->route('compras.index')
             ->with('success', 'Compra created successfully.');
     }

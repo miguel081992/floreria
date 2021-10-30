@@ -18,12 +18,12 @@
         </div>
         <div class="form-group">
             {{ Form::label('costo') }}
-            {{ Form::number('costo', $producto->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'Costo']) }}
+            {{ Form::number('costo', $producto->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'Costo','step'=>'0.01']) }}
             {!! $errors->first('costo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Precio Venta') }}
-            {{ Form::number('precioVenta', $producto->precioVenta, ['class' => 'form-control' . ($errors->has('precioVenta') ? ' is-invalid' : ''), 'placeholder' => 'Precioventa']) }}
+            {{ Form::number('precioVenta', $producto->precioVenta, ['class' => 'form-control' . ($errors->has('precioVenta') ? ' is-invalid' : ''), 'placeholder' => 'Precioventa','step'=>'0.01']) }}
             {!! $errors->first('precioVenta', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">

@@ -14,19 +14,15 @@
         </div>
         <div class="form-group">
             {{ Form::label('costo') }}
-            {{ Form::number('costo', $compra->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'Costo']) }}
+            {{ Form::number('costo', $compra->costo, ['class' => 'form-control' . ($errors->has('costo') ? ' is-invalid' : ''), 'placeholder' => 'Costo', 'step'=>'0.01','min'=>'0.01']) }}
             {!! $errors->first('costo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('cantidad') }}
-            {{ Form::number('cantidad', $compra->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
+            {{ Form::number('cantidad', $compra->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad','min'=>'1']) }}
             {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</p>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('total') }}
-            {{ Form::number('total', $compra->total, ['class' => 'form-control' . ($errors->has('total') ? ' is-invalid' : ''), 'placeholder' => 'Total']) }}
-            {!! $errors->first('total', '<div class="invalid-feedback">:message</p>') !!}
-        </div>
+       
 
     </div>
     <div class="box-footer mt20">

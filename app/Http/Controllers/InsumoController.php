@@ -18,7 +18,7 @@ class InsumoController extends Controller
      */
     public function index()
     {
-        $insumos = Insumo::paginate();
+        $insumos = Insumo::paginate(10);
 
         return view('insumo.index', compact('insumos'))
             ->with('i', (request()->input('page', 1) - 1) * $insumos->perPage());
